@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
             <h1>Layout Global</h1>
             </header>
             <main>
-            <p>Teste estático</p>
+            <p>{children}</p>
             </main>
             <footer>
             <p>Feito manualmente com Next.js</p>
