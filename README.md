@@ -98,7 +98,55 @@
     }
   ```
 
+- ### 4ª anotação - TypeScript vs JavaScript
+- **O que entendi**: Enquanto fui pesquisando e vendo exemplos de formas como usar o framework do Next.JS, achei comum o uso de TypeScript nos códigos. E ao fazer testes rápidos para compreender se era melhor ou não, achei fascinante como ao apenas mudar o nome dos arquivos de "js" para "ts", o Next já fez todo o build para eu utilizar TypeScript. 
 
+    Vendo o código na prática, coisas mínimas mudam ao utilizar TypeScript invés de JavaScript. Ao pesquisar a diferença, entendi que o TS suporta JS plenamente, apenas adiciona funcionalidades a mais como a tipagem estática opcional. Ou seja, permite a definição explícita de tipos de dados e verificação de erros enquanto o código está sendo compilado.
+
+    A seguir está um exemplo do mesmo código, executado tanto em JavaScript quanto em TypeScript.
+
+  *Exemplo de código*:
+  ```typescript
+  'use client' // Indica para o Next.js que este componente será um Client Component, permitindo uso de estado, efeitos e eventos no navegador
+
+    import Link from 'next/link' // Importa o componente Link do Next.js, usado para navegação entre páginas
+
+    // Criação do type alias (apelido para um tipo de objeto que será usado nas props do componente)
+    type NavegarProps = {
+        route: string; // Define que a prop 'route' deve ser uma string
+    }
+
+    // Componente funcional do React/Next.js
+    export default function BotaoNavegar({ route }: NavegarProps) { 
+        // Recebe a prop 'route' tipada pelo type alias NavegarProps
+
+        return(
+            // Componente Link envolve o botão, garantindo navegação interna sem reload da página (SPA)
+            <Link href={"/" + route}> 
+                <button>
+                    Ir para {route[0].toUpperCase() + route.substring(1)}
+                </button>
+            </Link>
+        )
+    }
+  ```
+
+    ```javascript
+
+    'use client' // Continua sendo um Client Component
+    import Link from 'next/link'
+
+    // Em JavaScript não usamos type alias, pois não há tipagem estática
+
+    export default function BotaoNavegar({ route }) { // Não precisamos tipar {route}        
+
+        return (
+            <Link href={"/" + route}>
+                <button>Ir para {route[0].toUpperCase() + route.substring(1)}</button>
+            </Link>
+        )
+    }
+    ```
 
 
 ## Modelo de Anotação
