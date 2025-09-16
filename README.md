@@ -148,6 +148,20 @@
     }
     ```
 
+- ### 5ª anotação - JSX
+- **O que entendi**: JSX é a maneira que o JavaScript possui de transformar conteúdos de HTML em JavaScript. Isso apenas agiliza ao escrever o código HTML de forma direta no JS. A única diferença capaz de encontrar é que as classes CSS se chamam "className" em vez de "class". 
+
+    *Exemplo de código*:
+
+	```javascript
+	//Exemplo com JSX
+	const saudacao = <h1>Olá, mundo!</h1>
+	```
+
+	```javascript
+	//Exemplo sem JSX
+	const saudacao = React.createElement('h1', null, 'Olá, mundo!')
+	```
 
 ## Modelo de Anotação
 
