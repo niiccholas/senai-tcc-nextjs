@@ -1,11 +1,16 @@
+// com tipagem correta em TSX
+import { ReactNode } from "react";
+
+//metadata substitui o head
 export const metadata = {
-    title: "Meu Next App",
-    description: "Aprendendo Next.js do zero com app/"
-  }
+    title: "Meu Next App", // define nome da aba
+    description: "Aprendendo Next.js do zero com app/" // descrição da página para pré-visualização
+}
   
 export default function RootLayout({ children }) {
     return (
         <html lang="pt-BR">
+
         <body>
             <header>
             <h1>Layout Global</h1>
