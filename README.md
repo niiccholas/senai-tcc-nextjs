@@ -76,6 +76,29 @@
     export default Button;
   ```
 
+- ### 3ª anotação - Client Component vs Server Component
+- **O que entendi**: Por padrão, o Next.js deixa todo componente ou tela criado como Server Component. Isso significa que tudo é carregado do lado do servidor, sem interferência com o usuário. Por outro lado, temos Client Components, que devem ser utilizados principalmente para fazer chamadas de estados (que possibilitam que dados sejam mudados em tempo real).
+
+    O exemplo que eu trouxe está escrito no próprio projeto desse repositório, e é possível ver em "/app/components/Navegar.tsx", onde eu precisava fazer a navegação entre telas, e o Next.js exige que eu faça isso apenas com Client Component, para ser aplicado o efeito de SPA (Single Page Application) no projeto.
+
+  *Exemplo de código*:
+  ```typescript
+  'use client' // virou um client component
+
+    import Link from 'next/link'
+
+    export default function BotaoNavegar({route}: NavegarProps) {
+
+        return(
+            <Link href={"/" + route}>
+            <button>Ir para {route[0].toUpperCase() + route.substring(1)}</button>
+            </Link>
+        )
+
+    }
+  ```
+
+
 
 
 ## Modelo de Anotação
